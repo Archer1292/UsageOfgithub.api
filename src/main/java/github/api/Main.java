@@ -16,7 +16,7 @@ public class Main {
     }
 
     private static void testGitHubHandler() throws Exception {
-        GitHubHandler handler = new GitHubHandler();
+        GitHubHandler handler = new GitHubHandler(System.getenv("GITHUB_TOKEN"));
         Repository[] starredRepos = handler.getTop10StarredRepos();
         for (Repository starredRepo : starredRepos) {
             starredRepo.setContributors(handler.getTop5ReposContributors(starredRepo));

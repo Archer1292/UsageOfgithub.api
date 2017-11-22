@@ -13,9 +13,11 @@ import java.util.*;
 
 
 public class GitHubHandler {
-    final private String TOKEN = System.getenv("GITHUB_TOKEN");
+    private String TOKEN;
     final private String startDate = "2009-08-07";
-    final private String endDate= "2009-08-14";
+    final private String endDate = "2009-08-14";
+
+    public GitHubHandler(String token) {TOKEN = token;}
 
     public Repository[] getTop10StarredRepos() throws Exception {
         String url = "https://api.github.com/search/repositories?q=stars:%3E=1&sort=stars&order=desc";
