@@ -117,4 +117,112 @@ TopContributors:
 * ncanceill with 30 commits
 
 ## Top 10 COMMITED Repos 2009.08.07-14
--
+**1. opensim/opensim**  
+description: This is a github mirror of the opensim git repository (synced every 10 minutes).  The cannonical master is on http://opensimulator.org/viewgit  
+language: C#  
+commitsCount: 23932  
+TopContributors:
+* justincc with 6460 commits
+* MelanieT with 5450 commits
+* diva with 2200 commits
+* UbitUmarov with 1481 commits
+* Teravus with 1305 commits
+
+**2. archlinuxarm/PKGBUILDs**  
+description: PKGBUILDs modified to build on Arch Linux ARM  
+language: Shell  
+commitsCount: 13615  
+TopContributors:
+* kmihelich with 10466 commits
+* moonman with 980 commits
+* WarheadsSE with 432 commits
+* davidbeauchamp with 327 commits
+* mikestaszel with 302 commits
+
+**3. ethersex/ethersex**  
+description: etherrape port towards IPv6  
+language: C  
+commitsCount: 5037  
+TopContributors:
+* stesie with 1228 commits
+* eku with 1091 commits
+* stettberger with 644 commits
+* habo with 298 commits
+* mguentner with 273 commits
+
+**4. nette/nette**  
+description: 👪 METAPACKAGE for Nette Framework components  
+language: PHP  
+commitsCount: 4431  
+TopContributors:
+* dg with 3571 commits
+* hrach with 244 commits
+* vrana with 84 commits
+* milo with 68 commits
+* fprochazka with 58 commits
+
+**5. slact/nchan**  
+description: Fast, horizontally scalable, multiprocess pub/sub queuing server and proxy for HTTP, long-polling, Websockets and EventSource (SSE), powered by Nginx.  
+language: C  
+commitsCount: 3072  
+TopContributors:
+* slact with 3021 commits
+* jedisct1 with 8 commits
+* woodyhymns with 7 commits
+* supertong with 5 commits
+* eschultz with 4 commits
+
+**6. sparkle-project/Sparkle**  
+description: A software update framework for macOS  
+language: Objective-C  
+commitsCount: 1948  
+TopContributors:
+* pornel with 662 commits
+* andymatuschak with 440 commits
+* zorgiepoo with 263 commits
+* jakepetroules with 193 commits
+* uliwitness with 76 commits
+
+**7. matsen/pplacer**  
+description: Phylogenetic placement and downstream analysis  
+language: OCaml  
+commitsCount: 1835  
+TopContributors:
+* habnabit with 1179 commits
+* matsen with 568 commits
+* bcclaywell with 44 commits
+* metasoarous with 27 commits
+* nhoffman with 9 commits
+
+**8. konklone/congress-android**  
+description: Congress for Android, an app for tracking Congress.  
+language: Java  
+commitsCount: 1649  
+TopContributors:
+* konklone with 1503 commits
+* evelyne24 with 122 commits
+* MatrixFrog with 8 commits
+* divergentdave with 5 commits
+* paultag with 5 commits
+
+**9. hanzz/spectrum**
+description: Spectrum  
+language: C++  
+commitsCount: 1387  
+TopContributors:
+* hanzz with 1068 commits
+* mathiasertl with 228 commits
+* darkrain42 with 40 commits
+* jrobeson with 27 commits
+* michich with 11 commits
+
+**10. resque/resque**  
+description: Resque is a Redis-backed Ruby library for creating background jobs, placing them on multiple queues, and processing them later.  
+language: Ruby  
+commitsCount: 1358  
+TopContributors:
+* defunkt with 668 commits
+* steveklabnik with 174 commits
+* chrisccerami with 60 commits
+* hone with 55 commits
+* tarcieri with 36 commits
