@@ -13,7 +13,7 @@ import java.util.*;
 
 
 public class GitHubHandler {
-    final private String TOKEN = "1ad12c98d9729b3c98eee8627c090e9ac5a864ba";
+    final private String TOKEN = "6193c196e298f87b1f9300d374100c8b103ce180";
     final private String startDate = "2009-08-07";
     final private String endDate= "2009-08-14";
 
