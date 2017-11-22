@@ -1,5 +1,6 @@
 package example.github.api;
 
+import github.api.ContributorToRepo;
 import github.api.Repository;
 
 import org.junit.*;
@@ -23,5 +24,9 @@ public class RepositoryTest {
         assertFalse(repo.toString().contains("starsCount"));
         repo.setStarsCount(1);
         assertTrue(repo.toString().contains("starsCount"));
+
+        repo.setContributors(new ContributorToRepo[] {new ContributorToRepo("I", 1)});
+        assertNotNull(repo.getContributors());
+        assertTrue(repo.toString().contains("Contributors"));
     }
 }
