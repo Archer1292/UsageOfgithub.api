@@ -13,7 +13,7 @@ import java.util.*;
 
 
 public class GitHubHandler {
-    final private String TOKEN = "fe1ae7ec7f063b91394ca8b629dbefb7e274e75a";
+    final private String TOKEN = System.getenv("GITHUB_TOKEN");
     final private String startDate = "2009-08-07";
     final private String endDate= "2009-08-14";
 
@@ -95,7 +95,7 @@ public class GitHubHandler {
     private String getJsonResult(String url) throws IOException, IllegalArgumentException {
         HttpGet request = new HttpGet(url);
         request.setHeader("Authorization", "token " + TOKEN);
-        //request.setHeader("Accept", "application/vnd.github.nightshade-preview+json");
+        request.setHeader("Accept", "application/vnd.github.nightshade-preview+json");
         CloseableHttpClient client = HttpClients.createDefault();
         CloseableHttpResponse response = client.execute(request);
         String jsonResult = EntityUtils.toString(response.getEntity(), "UTF-8");
