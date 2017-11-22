@@ -63,9 +63,11 @@ public class GitHubHandler {
             if (jsonRepos.size() == 0)
                 break;
 
+            Repository currentRepo;
             for (int i = 0; i < jsonRepos.size(); i++) {
-                allRepos.add(convertToRepo((JsonObject) jsonRepos.get(i)));
-                allRepos.get(i).setCommitsCount(getContributorsCommitsCount((JsonObject) jsonRepos.get(i)));
+                currentRepo = convertToRepo((JsonObject) jsonRepos.get(i));
+                currentRepo.setCommitsCount(getContributorsCommitsCount((JsonObject) jsonRepos.get(i)));
+                allRepos.add(currentRepo);
             }
             page++;
         }
@@ -73,12 +75,14 @@ public class GitHubHandler {
     }
 
     private int getContributorsCommitsCount(JsonObject jsonRepo) throws Exception {
-        int contributionsCount = 0;
+        int contributionsCommitsCount = 0;
         int page = 1;
         final int pageCountFor60Contributors = 2;
+        StringBuilder url;
         while (page <= pageCountFor60Contributors) {
-            String url = jsonRepo.get("contributors_url").getAsString();
-            String jsonResult = getJsonResult(url);
+            url = new StringBuilder(jsonRepo.get("contributors_url").getAsString());
+            url.append("?page=").append(page);
+            String jsonResult = getJsonResult(url.toString());
             if (jsonResult == null)
                 return 0;
 
@@ -88,10 +92,10 @@ public class GitHubHandler {
                 break;
 
             for (int i = 0; i < jsonContributors.size(); i++)
-                contributionsCount += getContributorCommits((JsonObject) jsonContributors.get(i));
+                contributionsCommitsCount += getContributorCommits((JsonObject) jsonContributors.get(i));
             page++;
         }
-        return contributionsCount;
+        return contributionsCommitsCount;
     }
 
     private String getJsonResult(String url) throws IOException, IllegalArgumentException {
