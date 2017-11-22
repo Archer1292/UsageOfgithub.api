@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 
 public class GitHubHandlerTest {
-    private GitHubHandler handler = new GitHubHandler();
+    private GitHubHandler handler = new GitHubHandler(System.getenv("GITHUB_TOKEN"));
 
     @Test
     public void getTop10StarredRepos() throws Exception {
