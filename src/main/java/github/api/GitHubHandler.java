@@ -17,7 +17,7 @@ public class GitHubHandler {
     final private String startDate = "2009-08-07";
     final private String endDate= "2009-08-14";
 
-    public Repository[] getTop10StarredRepos() throws IOException, IllegalArgumentException {
+    public Repository[] getTop10StarredRepos() throws Exception {
         String url = "https://api.github.com/search/repositories?q=stars:%3E=1&sort=stars&order=desc";
         String jsonResult = getJsonResult(url);
         JsonParser jsonParser = new JsonParser();
@@ -36,7 +36,7 @@ public class GitHubHandler {
         return repos;
     }
 
-    public Repository[] getTop10CommitedRepositoriesInWeek(int pagesCount) throws IOException {
+    public Repository[] getTop10CommitedRepositoriesInWeek(int pagesCount) throws Exception {
         List<Repository> allRepos = getAllReposInWeek(pagesCount);
         allRepos.sort(Comparator.comparing(Repository::getCommitsCount).reversed());
         int neededReposCount = 10;
@@ -46,7 +46,7 @@ public class GitHubHandler {
         return repos;
     }
 
-    private List<Repository> getAllReposInWeek(int pagesCount) throws IOException, IllegalArgumentException {
+    private List<Repository> getAllReposInWeek(int pagesCount) throws Exception {
         List<Repository> allRepos = new ArrayList<>();
         int page = 1;
         while(page <= pagesCount) {
@@ -70,7 +70,7 @@ public class GitHubHandler {
         return allRepos;
     }
 
-    private int getContributorsCommitsCount(JsonObject jsonRepo) throws IOException {
+    private int getContributorsCommitsCount(JsonObject jsonRepo) throws Exception {
         int contributionsCount = 0;
         int page = 1;
         final int pageCountFor60Contributors = 2;
@@ -95,7 +95,7 @@ public class GitHubHandler {
     private String getJsonResult(String url) throws IOException, IllegalArgumentException {
         HttpGet request = new HttpGet(url);
         request.setHeader("Authorization", "token " + TOKEN);
-        request.setHeader("Accept", "application/vnd.github.nightshade-preview+json");
+        //request.setHeader("Accept", "application/vnd.github.nightshade-preview+json");
         CloseableHttpClient client = HttpClients.createDefault();
         CloseableHttpResponse response = client.execute(request);
         String jsonResult = EntityUtils.toString(response.getEntity(), "UTF-8");
@@ -103,7 +103,7 @@ public class GitHubHandler {
         return jsonResult;
     }
 
-    public ContributorToRepo[] getTop5ReposContributors(Repository repo) throws IOException, IllegalArgumentException {
+    public ContributorToRepo[] getTop5ReposContributors(Repository repo) throws Exception {
         StringBuilder url = new StringBuilder();
         url.append("https://api.github.com/repos/").append(repo.getName()).append("/contributors");
         String jsonResult = getJsonResult(url.toString());
